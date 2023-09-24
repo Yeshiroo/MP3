@@ -39,7 +39,7 @@
      #playlist li {
          cursor: pointer;
          padding: 10px;
-         background-color:honeydew;
+         background-color: #C9BBCF;
          margin: 5px 0;
          transition: background-color 0.2s ease-in-out;
      }
@@ -95,17 +95,18 @@
 <?php if ($symphony): ?>
         <?php foreach ($symphony as $Music): ?>
             <li data-src="<?= $m['file_path'] ?>">
-              <a href="/addtoplaylist" class="hover-effect">
-                  <img src="<?= base_url(); ?>/add.png">
-              </a>
+            <a href="#" id="music" class="play-link" data-music-id="<?= $m['id'] ?>">
+                    <?= $m['MusicName'] ?>
+                </a>
+
             </li>
         <?php endforeach; ?>
 <?php else: ?>
     <?php foreach ($Music as $m): ?>
         <li data-src="<?= $m['file_path'] ?>">
-      <a href="/addtoplaylist" class="hover-effect">
-          <img src="<?= base_url(); ?>/add.png" width="20">
-      </a></li>
+        <a href="#" id="music" class="play-link" data-music-id="<?= $m['id'] ?>">
+                    <?= $m['MusicName'] ?>
+                </a></li>
     <?php endforeach; ?>
 <?php endif; ?>
 </ul>
