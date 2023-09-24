@@ -2,28 +2,27 @@
 // app/Controllers/MusicPlayerController.php
 
 namespace App\Controllers;
+use App\Controllers\BaseController;
+use App\Models\MusicModel;
 
 class MusicPlayerController extends BaseController
 {
     
     public function Music()
     {
-        return view('Music');
+        $main = new MusicModel();
+        $data['Music'] = $main->findAll();
+        $data['symphony'] = [];
+        return view('Music', $data);
     }
 
     public function playMusic()
     {
-        // Implement logic to play music.
+       // $Upload = new MusicModel();
+       //$data['Music'] = $Upload->findAll();
+        //$data['symphony'] = [];
+        return view('playlist');
     }
 
-    public function pauseMusic()
-    {
-        // Implement logic to pause music.
-    }
-
-    public function skipTrack()
-    {
-        // Implement logic to skip to the next track in the playlist.
-    }
 }
 

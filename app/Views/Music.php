@@ -11,12 +11,12 @@
     body {
          font-family: Arial, sans-serif;
          text-align: center;
-         background-color: #f5f5f5;
+         background-color:#FCE1E4;
          padding: 20px;
      }
 
      h1 {
-         color: #333;
+         color:black;
      }
 
      #player-container {
@@ -39,7 +39,7 @@
      #playlist li {
          cursor: pointer;
          padding: 10px;
-         background-color: #eee;
+         background-color:honeydew;
          margin: 5px 0;
          transition: background-color 0.2s ease-in-out;
      }
@@ -89,13 +89,27 @@
   My Playlist
 </button>
 
-    <audio id="audio" controls autoplay></audio>
-    <ul id="playlist">
+<audio id="audio" controls autoplay></audio>
 
-        <li data-src="/your music src">music name
-        </li>
+<ul id="playlist">
+<?php if ($symphony): ?>
+        <?php foreach ($symphony as $Music): ?>
+            <li data-src="<?= base_url(); ?>/Music/<?= $music['MusicName'];?>.mp3"><?= $music['MusicName']; ?>
+              <a href="/addtoplaylist" class="hover-effect">
+                  <img src="<?= base_url(); ?>/add.png">
+              </a>
+            </li>
+        <?php endforeach; ?>
+<?php else: ?>
+    <?php foreach ($Music as $m): ?>
+      <li data-src="<?= base_url(); ?>/music/<?= $m['MusicName'];?>.mp3"><?= $m['MusicName']; ?>
+      <a href="/addtoplaylist" class="hover-effect">
+          <img src="<?= base_url(); ?>/add.png" width="20">
+      </a></li>
+    <?php endforeach; ?>
+<?php endif; ?>
+</ul>
 
-    </ul>
     <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
