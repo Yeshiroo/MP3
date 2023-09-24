@@ -94,7 +94,7 @@
 <ul id="playlist">
 <?php if ($symphony): ?>
         <?php foreach ($symphony as $Music): ?>
-            <li data-src="<?= base_url(); ?>/Music/<?= $music['MusicName'];?>.mp3"><?= $music['MusicName']; ?>
+            <li data-src="<?= $m['file_path'] ?>">
               <a href="/addtoplaylist" class="hover-effect">
                   <img src="<?= base_url(); ?>/add.png">
               </a>
@@ -102,7 +102,7 @@
         <?php endforeach; ?>
 <?php else: ?>
     <?php foreach ($Music as $m): ?>
-      <li data-src="<?= base_url(); ?>/music/<?= $m['MusicName'];?>.mp3"><?= $m['MusicName']; ?>
+        <li data-src="<?= $m['file_path'] ?>">
       <a href="/addtoplaylist" class="hover-effect">
           <img src="<?= base_url(); ?>/add.png" width="20">
       </a></li>
