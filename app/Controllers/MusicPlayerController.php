@@ -18,9 +18,9 @@ class MusicPlayerController extends BaseController
 
     public function playMusic()
     {
-       // $Upload = new MusicModel();
-       //$data['Music'] = $Upload->findAll();
-        //$data['symphony'] = [];
+       $Upload = new MusicModel();
+       $data['Music'] = $Upload->findAll();
+        $data['symphony'] = [];
         return view('playlist');
     }
 
